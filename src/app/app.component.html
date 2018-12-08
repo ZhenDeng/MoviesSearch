@@ -19,7 +19,7 @@
     <div class="list-body">
         <div class="container">
             <div class="row">
-                <div class="movlist" [class.col-md-3]="showDetails" [class.col-md-12]="!showDetails">
+                <div class="movlist col-md-12">
                     <div class="searchInputGroup">
                         <div class="searchIcon">
                             <img src="assets/images/filter.png">
@@ -27,11 +27,16 @@
                         <input class="searchInput" type="text" placeholder="Search movies" [(ngModel)]="searchString"
                             (ngModelChange)="onChange()">
                     </div>
+                </div>
+                <div [class.col-md-3]="showDetails" [class.col-md-12]="!showDetails" [class.movlist]="hasMovies == 'true'">
+                    <div class="searchInputGroup" *ngIf="hasMovies == 'true'">
+                        <input class="filterInput" type="text" placeholder="Filter movies" [(ngModel)]="filterString"
+                            (ngModelChange)="onFilter()">
+                    </div>
                     <div *ngIf="hasMovies == 'true'">
                         <!-- <div class="card" *ngFor="let movie of movies | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }"
                             (click)="showMovieDetails(movie)"> -->
-                        <div class="card" *ngFor="let movie of movies"
-                            (click)="showMovieDetails(movie)">
+                        <div class="card" *ngFor="let movie of moviesFilter" (click)="showMovieDetails(movie)">
                             <div class="card-body">
                                 <div class="row">
                                     <span class="card-title col-sm-8">{{movie?.Title}}</span>
@@ -43,9 +48,11 @@
                     </div>
 
                     <div *ngIf="movies?.length" class="container pagina">
-                        <span class="leftarrow" [class.disablearrow] = "pageNumber == 1" (click)="pageNumber &gt; 1 && pagePre()"><i class="fa fa-caret-left fa-3x"></i></span>
+                        <span class="leftarrow" [class.disablearrow]="pageNumber == 1" (click)="pageNumber &gt; 1 && pagePre()"><i
+                                class="fa fa-caret-left fa-3x"></i></span>
                         <span class="pagenumber">Page {{pageNumber}}</span>
-                        <span class="rightarrow" [class.disablearrow] = "pageNumber == pageNumberTotal" (click)="pageNumber &lt; pageNumberTotal && pageNext()"><i class="fa fa-caret-right fa-3x"></i></span>
+                        <span class="rightarrow" [class.disablearrow]="pageNumber == pageNumberTotal" (click)="pageNumber &lt; pageNumberTotal && pageNext()"><i
+                                class="fa fa-caret-right fa-3x"></i></span>
                     </div>
                     <div class="card-result" [hidden]="!movies?.length">{{total}} results</div>
                     <div class="noResult-wrapper" *ngIf="hasMovies == 'false'">

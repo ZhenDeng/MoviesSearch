@@ -128,6 +128,18 @@
     padding-left: 40px;
 }
 
+.filterInput{
+    width: 100%;
+    border-left: none;
+    margin: 0;
+    outline: none;
+    background: #fff;
+    font-size: 14px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 20px;
+    padding-left: 20px;
+}
+
 .searchbody{
     margin-top: 130px;
 }

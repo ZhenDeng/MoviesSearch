@@ -18,6 +18,7 @@ export class AppComponent {
   pageNumber: number = 1;
   pageNumberTotal: number;
   movies: Movies[];
+  moviesFilter: Movies[];
   movieDetail: Movies;
   total: string;
   showDetails: boolean = false;
@@ -37,6 +38,7 @@ export class AppComponent {
       this.httpService.GetMovieList(this.searchString, this.pageNumber.toString()).subscribe((res: MovieResponse) => {
         if (res.Response == 'True') {
           this.movies = res.Search;
+          this.moviesFilter = this.movies
           this.total = res.totalResults;
           this.pageNumberTotal = _.toNumber(this.total)/10;
           this.hasMovies = "true";
@@ -60,6 +62,7 @@ export class AppComponent {
     this.httpService.GetMovieList(this.searchString, this.pageNumber.toString()).subscribe((res: MovieResponse) => {
       if (res.Response == 'True') {
         this.movies = res.Search;
+        this.moviesFilter = this.movies
         this.total = res.totalResults;
         //hasMovies control "no result found" message, when set to false, "no result found message" will be shown
         this.hasMovies = "true";
@@ -79,6 +82,7 @@ export class AppComponent {
     this.httpService.GetMovieList(this.searchString, this.pageNumber.toString()).subscribe((res: MovieResponse) => {
       if (res.Response == 'True') {
         this.movies = res.Search;
+        this.moviesFilter = this.movies
         this.total = res.totalResults;
         this.hasMovies = "true";
       }else{
@@ -104,5 +108,13 @@ export class AppComponent {
       (error: any) => {
         console.error(error);
       });
+  }
+
+  onFilter():void{
+    this.moviesFilter = this.movies.filter(movie => 
+      movie.Title.toLowerCase().includes(this.filterString.toLowerCase()) ||
+      movie.Year.toLowerCase().includes(this.filterString.toLowerCase()) ||
+      movie.imdbID.toLowerCase().includes(this.filterString.toLowerCase())
+      )
   }
 }
