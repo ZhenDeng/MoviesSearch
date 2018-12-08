@@ -5,8 +5,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
-This is a hCard builder built by Angular
-
 ## Description
 
 this engine is built by angular 5 and OMDBAPI (https://www.omdbapi.com/).
