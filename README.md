@@ -1,6 +1,5 @@
 # MoviesSearch
 
-[![npm version](https://badge.fury.io/js/%40angular%2Fmaterial.svg)](https://www.npmjs.com/package/%40angular%2Fmaterial)
 [![.angular](https://img.shields.io/badge/angular-5.0.0-yellow.svg)](https://github.com/angular)
 [![.bootstrap](https://img.shields.io/badge/bootstrap-4.1.1-red.svg)](https://github.com/twbs/bootstrap)
 
