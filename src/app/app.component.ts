@@ -45,7 +45,7 @@ export class AppComponent {
           this.moviesFilter = this.movies
           this.total = res.totalResults;
           //get total page number -- total movie number divide 10 result per page
-          this.pageNumberTotal = _.toNumber(this.total) / 10;
+          this.pageNumberTotal = _.toInteger(_.toNumber(this.total) / 10);
           this.hasMovies = "true";
         } else {
           this.hasMovies = "false";
