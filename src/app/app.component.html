@@ -51,7 +51,7 @@
                         <span class="leftarrow" [class.disablearrow]="pageNumber == 1" (click)="pageNumber &gt; 1 && pagePre()"><i
                                 class="fa fa-caret-left fa-3x"></i></span>
                         <span class="pagenumber">Page {{pageNumber}}</span>
-                        <span class="rightarrow" [class.disablearrow]="pageNumber == pageNumberTotal || pageNumber == 1 || pageNumber == 0" (click)="pageNumber &lt; pageNumberTotal && pageNext()"><i
+                        <span class="rightarrow" [class.disablearrow]="pageNumber == pageNumberTotal || pageNumberTotal == 1 || pageNumberTotal == 0" (click)="pageNumber &lt; pageNumberTotal && pageNext()"><i
                                 class="fa fa-caret-right fa-3x"></i></span>
                     </div>
                     <div class="card-result" [hidden]="!movies?.length">{{total}} results</div>
