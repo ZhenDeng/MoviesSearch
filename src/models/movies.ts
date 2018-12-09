@@ -1,3 +1,5 @@
+export const ApiUrl = "http://www.omdbapi.com/";
+
 export interface MovieResponse{
     Response: string
     Search: Movies[]

@@ -17,4 +17,4 @@ this engine is built by angular 6 and OMDBAPI (https://www.omdbapi.com/).
 
 3. Run "npm install" to install all necessary libraries
 
-4. Run "ng serve --open" to run the project, default port is 4200, if this port is occupied, run "ng serve --open --port [port number]" to run the project in an idle port
+4. Run "npm start" to run the project, default port is 4200
