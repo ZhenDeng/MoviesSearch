@@ -19,6 +19,8 @@ this engine is built by angular 6 and OMDBAPI (https://www.omdbapi.com/).
 
 4. Run "npm start" to run the project, default port is 4200
 
+5. Supported Browser: Chrome, Firefox, Safari
+
 ## Brief introduction
 
 -- search movie by free text in search bar and a movie list which meet the criteria of search string will be shown below the search bar
